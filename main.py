@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 class Calculator():
     def __init__(self, parent):
         self.parent = parent
@@ -7,7 +8,6 @@ class Calculator():
             self.entr_lbl.delete(len(self.entr_lbl.get())-1)
     def clear(self):
         self.entr_lbl.delete(0,END)
-        self.entr_lbl_value = 0
     def put_one(self):
         self.entr_lbl.insert(END,"1")
     def put_two(self):
@@ -43,7 +43,7 @@ class Calculator():
     def calculate(self):
         try:
             if self.entr_lbl.get() == "":
-                self.messagebox.showerror("Error","Please enter a value")
+                messagebox.showerror("Error","Please enter a value")
             else:
                 self.string = self.entr_lbl.get()
                 if '+' in self.string:
@@ -83,11 +83,11 @@ class Calculator():
                     self.entr_lbl.delete(0,END)
                     self.entr_lbl.insert(0,float(self.fnum)%float(self.snum))
                 else:
-                    self.messagebox.showerror("Error","Please enter a valid expression")    
+                    messagebox.showerror("Error","Please enter a valid expression")    
         except ValueError:
-            self.messagebox.showerror("Error","Please enter a valid value")
+            messagebox.showerror("Error","Please enter a valid value")
         except ZeroDivisionError:
-            self.messagebox.showerror("Error","Zero division error")    
+            messagebox.showerror("Error","Zero division error")    
     def create_widgets(self):
          self.welcm_lbl = Label(self.parent, text="Calculator",fg="#2fa4e7", font=("bold" ,15),bg="#00030a",padx=10)
          self.welcm_lbl.place(x=10,y=10)

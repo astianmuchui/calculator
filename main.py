@@ -4,16 +4,22 @@ class Calculator():
     def __init__(self, parent):
         self.parent = parent
         self.create_widgets()
+        
     def backspace(self):
             self.entr_lbl.delete(len(self.entr_lbl.get())-1)
+            
     def clear(self):
         self.entr_lbl.delete(0,END)
+        
     def put_one(self):
         self.entr_lbl.insert(END,"1")
+        
     def put_two(self):
         self.entr_lbl.insert(END,"2")
+        
     def put_three(self):
         self.entr_lbl.insert(END,"3")
+        
     def put_four(self):
         self.entr_lbl.insert(END,"4")
     def put_five(self):
@@ -89,12 +95,12 @@ class Calculator():
         except ZeroDivisionError:
             messagebox.showerror("Error","Zero division error")    
     def create_widgets(self):
-         self.welcm_lbl = Label(self.parent, text="Calculator",fg="#2fa4e7", font=("bold" ,15),bg="#00030a",padx=10)
+         self.welcm_lbl = Label(self.parent, text="Standard",fg="#2fa4e7", font=("bold" ,15),bg="#00030a",padx=10)
          self.welcm_lbl.place(x=10,y=10)
          
          self.entr_lbl = Entry(self.parent,fg="#2fa4e7",bg="#00030a",font=("bold",30))
         #  self.entr_lbl.insert(0,"0")
-         self.entr_lbl.place(x=20,y=65,height=100,width=450)    
+         self.entr_lbl.place(x=20,y=65,height=130,width=500)    
             
          # create buttons 
          
@@ -114,10 +120,10 @@ class Calculator():
          self.div_btn.place(x=215,y=295)
          
          self.clear_btn = Button(self.parent,text="C",command=self.clear,padx=20,pady=20,font=("bold",12),bg="#00030a",fg="#2fa4e7",activebackground="#00030a")
-         self.clear_btn.place(x=215,y=370)
+         self.clear_btn.place(x=215,y=220)
          
          self.backspace_btn = Button(self.parent,text="<",padx=20,pady=20,command=self.backspace,font=("bold",12),bg="#00030a",fg="#2fa4e7",activebackground="#00030a")
-         self.backspace_btn.place(x=285,y=370)
+         self.backspace_btn.place(x=215,y=370)
          
          self.nine = Button(self.parent,text="7",padx=20,pady=20,command=self.put_seven,font=("bold",12),bg="#2fa4e7",fg="#00030a",activebackground="#2fa4e7")
          self.nine.place(x=20,y=295)
@@ -147,13 +153,13 @@ class Calculator():
          self.one.place(x=150,y=450)
          
          self.zero = Button(self.parent,text="0",command=self.put_zero,padx=20,pady=20,font=("bold",12),bg="#2fa4e7",fg="#00030a",activebackground="#2fa4e7")
-         self.zero.place(x=150,y=450)
+         self.zero.place(x=215,y=450)
          
          self.decimal_btn = Button(self.parent,text=".",command=self.put_decimal,padx=20,pady=20,font=("bold",12),bg="#2fa4e7",fg="#00030a",activebackground="#2fa4e7")
-         self.decimal_btn.place(x=215,y=450)
+         self.decimal_btn.place(x=278,y=450)
          
          self.equals = Button(self.parent,text="=",command=self.calculate,padx=30,pady=20,font=("bold",12),bg="#2fa4e7",fg="#00030a",activebackground="#2fa4e7")
-         self.equals.place(x=278,y=450)
+         self.equals.place(x=340,y=450)
          
          
 

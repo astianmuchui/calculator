@@ -1,10 +1,11 @@
 from tkinter import *
 from tkinter import messagebox
+# create calculator class
 class Calculator():
     def __init__(self, parent):
         self.parent = parent
         self.create_widgets()
-        
+     # Important methods
     def backspace(self):
             self.entr_lbl.delete(len(self.entr_lbl.get())-1)
             
@@ -94,6 +95,7 @@ class Calculator():
             messagebox.showerror("Error","Please enter a valid value")
         except ZeroDivisionError:
             messagebox.showerror("Error","Zero division error")    
+     # Build UI
     def create_widgets(self):
          self.welcm_lbl = Label(self.parent, text="Standard",fg="#2fa4e7", font=("bold" ,15),bg="#00030a",padx=10)
          self.welcm_lbl.place(x=10,y=10)
